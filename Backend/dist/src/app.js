@@ -8,6 +8,7 @@ const express_1 = __importDefault(require("express"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const errorHandler_1 = require("./middlewares/errorHandler");
 const routev1_1 = __importDefault(require("./routes/routev1"));
+const path_1 = __importDefault(require("path"));
 class App {
     app;
     port;
@@ -30,6 +31,7 @@ class App {
         this.app.use(express_1.default.json());
         this.app.use(express_1.default.urlencoded({ extended: true }));
         this.app.use((0, cookie_parser_1.default)());
+        this.app.use("/uploads", express_1.default.static(path_1.default.join(__dirname, "..", "uploads")));
     }
     initializeRoutes() {
         this.app.use("/api/v1", routev1_1.default);

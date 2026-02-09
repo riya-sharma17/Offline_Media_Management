@@ -2,6 +2,7 @@ import express, { Application } from "express";
 import cookieParser from "cookie-parser";
 import { errorHandler } from "./middlewares/errorHandler";
 import routev1 from "./routes/routev1";
+import path from "path";
 
 export class App {
   public app: Application;
@@ -27,6 +28,12 @@ export class App {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(cookieParser());
+
+      this.app.use(
+    "/uploads",
+    express.static(path.join(__dirname, "..", "uploads"))
+  );
+
   }
 
   private initializeRoutes(): void {

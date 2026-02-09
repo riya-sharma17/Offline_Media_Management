@@ -6,10 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const multer_1 = __importDefault(require("multer"));
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
-// this file is in: Backend/src/utils/multer.ts
-// so we go UP two levels to Backend/
 const uploadDir = path_1.default.join(__dirname, "../../uploads/videos");
-// ensure folder exists
 if (!fs_1.default.existsSync(uploadDir)) {
     fs_1.default.mkdirSync(uploadDir, { recursive: true });
 }
