@@ -2,11 +2,8 @@ import multer from "multer";
 import fs from "fs";
 import path from "path";
 
-// this file is in: Backend/src/utils/multer.ts
-// so we go UP two levels to Backend/
 const uploadDir = path.join(__dirname, "../../uploads/videos");
 
-// ensure folder exists
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir, { recursive: true });
 }
